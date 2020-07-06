@@ -13,7 +13,7 @@ class Animal {
     string _name = "";
     string _sound = "";
 public:
-    Animal();   // default constructor
+    Animal();   // default constructor// i am not using the implicit constructor. i am defining my own constructor here.
     Animal(const string & type, const string & name, const string & sound);
     Animal(const Animal &); // copy constructor
     Animal & operator = (const Animal &); // copy operator
@@ -32,7 +32,7 @@ Animal::Animal(const string & type, const string & name, const string & sound)
     puts("constructor with arguments");
 }
 
-Animal::Animal(const Animal & rhs) {
+Animal::Animal(const Animal & rhs) {// wow. this is the copy construct and it takes in an object of the same type. that is after the equal sign. 
     puts("copy constructor");
     _name = clone_prefix + rhs._name;
     _type = rhs._type;
@@ -47,7 +47,7 @@ void Animal::print () const {
     printf("%s the %s says %s\n", _name.c_str(), _type.c_str(), _sound.c_str());
 }
 
-Animal & Animal::operator = (const Animal & rhs) {
+Animal & Animal::operator = (const Animal & rhs) {// wow. this is also a copy constructor and we are overloading a operator here as a member function.
     puts("copy operator");
     if(this != &rhs) {
         _name = clone_prefix + rhs._name;
@@ -69,6 +69,17 @@ int main() {
     
     a = c;
     a.print();
-    
+    /* OUTPUT:
+    default constructor
+unknown the unknown says unknown
+constructor with arguments
+fluffy the cat says meow
+copy constructor
+clone-fluffy the cat says meow
+copy operator
+clone-clone-fluffy the cat says meow
+destructor: clone-fluffy the cat
+destructor: fluffy the cat
+destructor: clone-clone-fluffy the cat */
     return 0;
 }

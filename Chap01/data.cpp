@@ -3,12 +3,23 @@
 #include <cstdio>
 using namespace std;
 
-struct A {
+struct A {//these members are public by default
     int ia;
     const char * sb = "";
     int ic;
 };
+class B{// these members are private by default
+       int ia;
+    const char * sb = "";
+    int ic;
+};
 
+class C{
+        int ia;// this is private
+public:
+const char * sb = "";
+    int ic;
+};
 int main() {
     A a;
     a.ia = 1;

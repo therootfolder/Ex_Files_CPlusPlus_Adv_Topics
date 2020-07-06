@@ -17,7 +17,8 @@ public:
     Rational operator + ( const Rational & ) const;
     Rational operator - ( const Rational & ) const;
     Rational operator * ( const Rational & ) const;
-    Rational operator / ( const Rational & ) const;
+    void operator / ( const Rational & ) const;// i changed this to void it was Rational originally
+    // i had to chech something
 };
 
 Rational & Rational::operator = ( const Rational & rhs ) {
@@ -40,8 +41,9 @@ Rational Rational::operator * ( const Rational & rhs ) const {
     return Rational(_n * rhs._n, _d * rhs._d);
 }
 
-Rational Rational::operator / ( const Rational & rhs ) const {
-    return Rational(_n * rhs._d, _d * rhs._n);
+void Rational::operator / ( const Rational & rhs ) const {
+    // return Rational(_n * rhs._d, _d * rhs._n);
+    printf("%d / %d\n",_n,_d);// prints the objects nr and dr
 }
 
 Rational::~Rational() {
@@ -73,6 +75,7 @@ int main() {
     cout << a << " + " << b << " = " << a + b << endl;
     cout << a << " - " << b << " = " << a - b << endl;
     cout << a << " * " << b << " = " << a * b << endl;
-    cout << a << " / " << b << " = " << a / b << endl;
+    // cout << a << " / " << b << " = " << a / b << endl;
+    a/b;
     return 0;
 }

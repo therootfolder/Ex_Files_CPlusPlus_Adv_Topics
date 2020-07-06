@@ -13,7 +13,7 @@ public:
     void setb ( const char * b ) { sb = b; }
     void setc ( const int c ) { ic = c; }
     int geta () const { return ia; }
-    const char * getb () const { return sb; }
+    const char * getb ()  const { return sb; }// making it const safe will not give access to write private members.
     int getc () const { return ic; }
 };
 
