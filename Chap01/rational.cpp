@@ -8,7 +8,8 @@ class Rational {
     int _n = 0;
     int _d = 1;
 public:
-    Rational ( int numerator = 0, int denominator = 1 ) : _n(numerator), _d(denominator) {};
+    Rational ( int numerator = 0, int denominator = 1 ) : _n(numerator), _d(denominator) {};// this is very useful to implicitly convert an int to this object. when it takes in a number ,
+    //it becomes the numberator and the denominator becomes 1
     Rational ( const Rational & rhs ) : _n(rhs._n), _d(rhs._d) {};    // copy constructor
     ~Rational ();
     int numerator() const { return _n; };
@@ -18,7 +19,7 @@ public:
     Rational operator - ( const Rational & ) const;
     Rational operator * ( const Rational & ) const;
     void operator / ( const Rational & ) const;// i changed this to void it was Rational originally
-    // i had to chech something
+    // i had to check something
 };
 
 Rational & Rational::operator = ( const Rational & rhs ) {
@@ -51,7 +52,7 @@ Rational::~Rational() {
 }
 
 // for std::cout
-std::ostream & operator << (std::ostream & o, const Rational & r) {
+std::ostream & operator << (std::ostream & o, const Rational & r) {//ostream object
     if(r.denominator() == 1) return o << r.numerator();
     else return o << r.numerator() << '/' << r.denominator();
 }
@@ -68,7 +69,7 @@ int main() {
     cout << "d is: " << d << endl;
     d = c;                // assignment operator
     cout << "d is: " << d << endl;
-    Rational & e = d;    // reference
+    Rational & e = d;    // reference// so no object is created since it is reference
     d = e;                // assignment to self!
     cout << "e is: " << e << endl;
     
@@ -77,5 +78,10 @@ int main() {
     cout << a << " * " << b << " = " << a * b << endl;
     // cout << a << " / " << b << " = " << a / b << endl;
     a/b;
+
+
+
+    // cout<<14+b<<endl; you cant do this with member operator overload. only works with non-member operator overload of +
+
     return 0;
 }

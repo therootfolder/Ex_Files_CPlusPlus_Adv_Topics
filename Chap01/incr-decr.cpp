@@ -10,7 +10,11 @@ public:
     int getvalue() const { return value; }
     void setvalue( int x ) { value = x; }
     num & operator ++ ();
-    num operator ++ (int);
+    num operator ++ (int);// the int is just a dummy value to tell the compiler to 
+    // differentiate between a pre-fix increment and a post-fix increment.
+    // and this dummy type is always int.
+
+    // infact my class is a num but it still says int.
     num & operator -- ();
     num operator -- (int);
 };
@@ -24,9 +28,9 @@ num & num::operator ++ () {
 }
 
 // post-increment
-num num::operator ++ (int) {
+num num::operator ++ (int) {// note even here it still says int and takes no name 
     cout << "post-increment: ";
-    num temp = *this;
+    num temp = *this;// this is the pointer to the current object which is of class num and property value. this will hold the starting address thats why it works i think.
     value += 1;
     return temp;
 }
