@@ -50,7 +50,7 @@ num num::operator -- (int) {
     return temp;
 }
 
-ostream & operator << (ostream & o, const num & n) {
+ostream & operator << (ostream & o, const num & n) {// overloading the << operator. very important.
     return o << (n.getvalue());
 }
 
@@ -59,6 +59,7 @@ int main()
     num n(42);
     cout << "value is " << n << endl;
     cout << "value is " << ++n << endl;
+    cout<<"value is "<< n++<< endl;
     cout << "value is " << n << endl;
     return 0;
 }

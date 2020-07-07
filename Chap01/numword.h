@@ -57,8 +57,8 @@ namespace bw {
         
     public:
         numword() : _num(0) {}
-        numword(const numnum & num) : _num(num) {}
-        ~numword();
+        numword(const numnum & num) : _num(num) {}//constructor taking arguments
+        ~numword();//destructor
         const char * version() const { return _version; }
         void setnum(const numnum & num) { _num = num; }
         numnum getnum() const { return _num; }

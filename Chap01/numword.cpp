@@ -9,7 +9,7 @@ numword::~numword() {
 }
 
 // assignment operator
-numnum numword::operator = ( const numnum & num ) {
+numnum numword::operator = ( const numnum & num ) {// numnum is typedef uint64_t
     setnum(num);
     return getnum();
 }

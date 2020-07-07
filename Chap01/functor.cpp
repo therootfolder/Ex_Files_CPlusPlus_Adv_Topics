@@ -5,7 +5,7 @@ using namespace std;
 
 class MultBy {
     int mult = 1;
-    MultBy();
+    MultBy();// a default constructor
 public:
     MultBy ( int n ) : mult(n) {}
     int operator () ( int n ) const { return mult * n; }
