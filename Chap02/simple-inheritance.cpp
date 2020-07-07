@@ -51,7 +51,7 @@ public:
     // name() which is defined in the parent class, you dont have to write Animal::name()
     //you could have also used _name after making it public member but thats not considered best practice.
     int feed() { return ++_fed; }
-};
+};                     
 
 int main() {
     Dog d("Rover");
